@@ -1,0 +1,107 @@
+.account-page {
+  min-height: 100vh;
+  background-color: var(--bg);
+}
+
+.account-container {
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.account-card {
+  background: var(--card);
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+}
+
+.account-card h1 {
+  font-size: 28px;
+  color: var(--text-main);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.profile-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.profile-image-container {
+  flex-shrink: 0;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+}
+
+.profile-image-placeholder {
+  width: 150px;
+  height: 150px;
+  border-radius: 9999px;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  border: 3px solid var(--primary);
+}
+
+.user-info {
+  flex: 1;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.info-item label {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.info-item span {
+  color: var(--text-secondary);
+}
+
+.role-badge {
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.role-badge.admin {
+  background-color: var(--warning);
+  color: #ffffff;
+}
+
+.role-badge.staff {
+  background-color: var(--secondary);
+  color: #ffffff;
+}
+
+.back-btn {
+  width: 100%;
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+.back-btn:hover {
+  background-color: #16a34a;
+}

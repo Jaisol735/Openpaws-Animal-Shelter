@@ -1,0 +1,30 @@
+insert into placement_lookup values
+('Adoption Preparation Area',1,'Ready for adoption'),
+('Shelter Standard Kennel',2,'Normal housing'),
+('Observation Zone',3,'Behavior monitoring'),
+('Behavior Rehabilitation Unit',4,'Behavior correction'),
+('Restricted Handling Isolation',5,'Dangerous animal'),
+
+('Healthy Kennel',1,'Healthy animals'),
+('Veterinary Check Area',3,'Medical evaluation required'),
+('Veterinary Treatment Unit',4,'Medical treatment required'),
+('Emergency Veterinary Care',6,'Critical medical condition');
+insert into risk_lookup values
+('low',1),
+('medium',2),
+('high',3);
+
+insert into placement_rules
+(rule_type,min_score,max_score,placement,risk_level,action_required,monitoring_level,reassessment_hours,contract_duration_days)
+values
+-- Behavioral Rules
+('behavioral',-10,0,'Adoption Preparation Area','low','none','minimal',72,7),
+('behavioral',1,3,'Shelter Standard Kennel','low','routine monitoring','normal',48,5),
+('behavioral',4,6,'Observation Zone','medium','behavior monitoring','moderate',24,5),
+('behavioral',7,9,'Behavior Rehabilitation Unit','high','behavior training required','intensive',12,7),
+('behavioral',10,100,'Restricted Handling Isolation','high','expert handler required','constant',6,10),
+-- Health Rules
+('health',-10,0,'Healthy Kennel','low','none','routine',72,7),
+('health',1,2,'Veterinary Check Area','medium','medical examination','moderate',24,5),
+('health',3,5,'Veterinary Treatment Unit','high','immediate treatment','intensive',12,7),
+('health',6,100,'Emergency Veterinary Care','high','emergency intervention','constant',3,10);

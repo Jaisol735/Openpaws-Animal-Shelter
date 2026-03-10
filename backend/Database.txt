@@ -1,0 +1,151 @@
+1. Users Table
+
+Stores shelter staff accounts.
+
+users
+Column	Type	Description
+id	uuid (PK)	Unique user identifier
+name	text	Staff name
+email	text (unique)	Staff email
+password	text	Hashed password
+role	text (admin / staff)	User role
+image_url	text	Profile image
+created_at	timestamptz	Account creation time
+2. Animals Table
+
+Stores animals currently in the shelter.
+
+animals
+Column	Type	Description
+id	uuid (PK)	Unique animal id
+animal_code	varchar(12) (unique)	Shelter animal code
+species	text	Dog, Cat, Cow, etc
+breed	text	Animal breed
+gender	text	Male / Female
+image_url	text	Animal image
+arrival_date	timestamptz	Shelter arrival date
+behavioral_score	int4	Latest behavioral score
+health_score	int4	Latest health score
+past_score	int4	Past behavior indicator
+status	text (locked/unlocked)	Assessment lock state
+created_at	timestamptz	Record creation
+placment    text  placement of animal default observation
+Default values:
+
+behavioral_score = 0
+health_score = 0
+past_score = 0
+status = 'locked'
+3. Assessments Table
+
+Stores each intake assessment event.
+
+assessments
+Column	Type	Description
+id	uuid (PK)	Assessment id
+animal_id	uuid (FK → animals.id)	Animal being assessed
+staff_id	uuid (FK → users.id)	Staff performing assessment
+behavioral_score	int4	Total behavior score
+health_score	int4	Total health score 
+past_score	int4	Behavior change indicator
+total_score	int4	behavioral + health
+placement	text	Recommended placement
+risk_level	text	Low / Medium / High
+created_at	timestamptz	Assessment time
+4. Assessment Answers Table
+
+Stores answers for every question in the assessment.
+
+assessment_answers
+Column	Type	Description
+id	uuid (PK)	Answer record
+assessment_id	uuid (FK → assessments.id)	Assessment reference
+animal_id	uuid (FK → animals.id)	Animal reference
+question_id	text	Question identifier
+answer	text	Selected option
+score	int4	Score for that option
+created_at	timestamptz	Answer timestamp
+5. Form Schemas Table
+
+Stores the dynamic JSON forms.
+
+form_schemas
+Column	Type	Description
+id	uuid (PK)	Form id
+form_name	text	Form name
+schema	jsonb	Questions JSON
+version	int	Form version
+created_at	timestamptz	Creation time
+
+Example forms stored:
+
+behavioral_full_assessment
+health_full_assessment
+6. Placement Rules Table
+
+Defines score ranges and placement logic.
+
+placement_rules
+Column	Type	Description
+id	uuid (PK)	Rule id
+rule_type	text	behavioral / health
+min_score	int4	Minimum score
+max_score	int4	Maximum score
+placement_id	uuid	Placement lookup
+risk_id	uuid	Risk lookup
+7. Placement Lookup Table
+
+Defines placement locations.
+
+placement_lookup
+Column	Type	Description
+id	uuid (PK)	Placement id
+placement_name	text	Area name
+description	text	Description
+
+Example placements:
+
+Adoption Ready
+General Kennel
+Observation Area
+Behavior Rehabilitation
+Veterinary Treatment
+Emergency Care
+Isolation
+8. Risk Lookup Table
+
+Defines risk levels.
+
+risk_lookup
+Column	Type	Description
+id	uuid (PK)	Risk id
+risk_level	text	low / medium / high
+description	text	Risk description
+Final Database Structure
+users
+animals
+assessments
+assessment_answers
+form_schemas
+placement_rules
+placement_lookup
+risk_lookup
+
+Total tables:
+
+8 tables
+Relationship Overview
+users
+   │
+   └── assessments
+           │
+           ├── assessment_answers
+           │
+animals ───┘
+
+placement_rules
+      │
+      ├── placement_lookup
+      └── risk_lookup
+
+form_schemas → dynamic assessment forms

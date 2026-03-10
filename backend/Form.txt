@@ -1,0 +1,193 @@
+insert into form_schemas (form_name, schema) values
+
+('behavioral_full_assessment',
+'{
+"type":"behavioral",
+"questions":[
+
+{"id":"human_approach","text":"Reaction when human approaches","required":true,"options":[
+{"label":"Approaches happily","score":-2},
+{"label":"Calm","score":-1},
+{"label":"Neutral","score":0},
+{"label":"Fearful","score":1},
+{"label":"Aggressive","score":2}
+]},
+
+{"id":"touch_response","text":"Response to touch","required":true,"options":[
+{"label":"Relaxed","score":-2},
+{"label":"Accepts handling","score":-1},
+{"label":"Neutral","score":0},
+{"label":"Pulls away","score":1},
+{"label":"Attempts to bite","score":2}
+]},
+
+{"id":"feeding_behavior","text":"Behavior during feeding","required":true,"options":[
+{"label":"Calm eater","score":-2},
+{"label":"Normal","score":-1},
+{"label":"Neutral","score":0},
+{"label":"Food guarding","score":1},
+{"label":"Aggressive guarding","score":2}
+]},
+
+{"id":"aggression_signs","text":"Observed aggression signals","required":true,"multiple":true,"options":[
+{"label":"Growling","score":1},
+{"label":"Snapping","score":1},
+{"label":"Biting attempt","score":2},
+{"label":"Charging","score":2},
+{"label":"None observed","score":-6,"exclusive":true}
+]},
+
+{"id":"social_behavior","text":"Interaction with other animals","required":true,"options":[
+{"label":"Friendly","score":-2},
+{"label":"Curious","score":-1},
+{"label":"Neutral","score":0},
+{"label":"Fearful","score":1},
+{"label":"Aggressive","score":2}
+]},
+
+{"id":"play_behavior","text":"Play behavior","required":true,"options":[
+{"label":"Playful","score":-2},
+{"label":"Friendly","score":-1},
+{"label":"Neutral","score":0},
+{"label":"Rough play","score":1},
+{"label":"Aggressive play","score":2}
+]},
+
+{"id":"noise_reaction","text":"Reaction to loud noise","required":true,"options":[
+{"label":"Ignores noise","score":-2},
+{"label":"Alert but calm","score":-1},
+{"label":"Neutral","score":0},
+{"label":"Fearful","score":1},
+{"label":"Aggressive","score":2}
+]},
+
+{"id":"new_environment","text":"Reaction to new environment","required":true,"options":[
+{"label":"Explores calmly","score":-2},
+{"label":"Curious","score":-1},
+{"label":"Neutral","score":0},
+{"label":"Hesitant","score":1},
+{"label":"Panicked","score":2}
+]},
+
+{"id":"stress_signs","text":"Stress indicators","required":true,"multiple":true,"options":[
+{"label":"Panting","score":1},
+{"label":"Shaking","score":1},
+{"label":"Whining","score":1},
+{"label":"Aggressive posture","score":2},
+{"label":"No stress signs","score":-5,"exclusive":true}
+]},
+
+{"id":"dominance_signs","text":"Dominance behavior","required":true,"options":[
+{"label":"None","score":-2},
+{"label":"Rare","score":-1},
+{"label":"Neutral","score":0},
+{"label":"Frequent","score":1},
+{"label":"Extreme","score":2}
+]},
+
+{"id":"escape_attempts","text":"Attempts to escape enclosure","required":true,"options":[
+{"label":"Never","score":-2},
+{"label":"Rare","score":-1},
+{"label":"Neutral","score":0},
+{"label":"Frequent","score":1},
+{"label":"Constant attempts","score":2}
+]},
+
+{"id":"eye_contact","text":"Reaction to eye contact","required":true,"options":[
+{"label":"Friendly","score":-2},
+{"label":"Calm","score":-1},
+{"label":"Neutral","score":0},
+{"label":"Avoids contact","score":1},
+{"label":"Threat posture","score":2}
+]}
+
+]
+}'::jsonb),
+
+('health_full_assessment',
+'{
+"type":"health",
+"questions":[
+
+{"id":"visible_injury","text":"Visible injuries","required":true,"multiple":true,"options":[
+{"label":"Cuts","score":2},
+{"label":"Bruises","score":1},
+{"label":"Bleeding","score":3},
+{"label":"Fracture suspected","score":4},
+{"label":"No injury","score":-5,"exclusive":true}
+]},
+
+{"id":"mobility","text":"Mobility condition","required":true,"options":[
+{"label":"Normal movement","score":-2},
+{"label":"Slight limp","score":1},
+{"label":"Moderate difficulty","score":2},
+{"label":"Severe difficulty","score":3},
+{"label":"Cannot move","score":4}
+]},
+
+{"id":"breathing","text":"Breathing condition","required":true,"options":[
+{"label":"Normal breathing","score":-2},
+{"label":"Slightly heavy","score":1},
+{"label":"Rapid breathing","score":2},
+{"label":"Labored breathing","score":3},
+{"label":"Severe distress","score":4}
+]},
+
+{"id":"hydration","text":"Hydration status","required":true,"options":[
+{"label":"Well hydrated","score":-2},
+{"label":"Slight dehydration","score":1},
+{"label":"Moderate dehydration","score":2},
+{"label":"Severe dehydration","score":3},
+{"label":"Critical dehydration","score":4}
+]},
+
+{"id":"body_condition","text":"Body condition","required":true,"options":[
+{"label":"Healthy weight","score":-2},
+{"label":"Slightly underweight","score":1},
+{"label":"Underweight","score":2},
+{"label":"Severely underweight","score":3},
+{"label":"Extremely weak","score":4}
+]},
+
+{"id":"skin_condition","text":"Skin and fur condition","required":true,"options":[
+{"label":"Healthy","score":-2},
+{"label":"Minor irritation","score":1},
+{"label":"Skin infection signs","score":2},
+{"label":"Severe infection","score":3},
+{"label":"Advanced disease","score":4}
+]},
+
+{"id":"eye_condition","text":"Eye condition","required":true,"options":[
+{"label":"Clear eyes","score":-2},
+{"label":"Minor discharge","score":1},
+{"label":"Moderate infection","score":2},
+{"label":"Severe infection","score":3},
+{"label":"Vision risk","score":4}
+]},
+
+{"id":"appetite","text":"Appetite level","required":true,"options":[
+{"label":"Normal appetite","score":-2},
+{"label":"Slight decrease","score":1},
+{"label":"Poor appetite","score":2},
+{"label":"Refuses food","score":3},
+{"label":"Critical starvation","score":4}
+]},
+
+{"id":"temperature","text":"Body temperature signs","required":true,"options":[
+{"label":"Normal","score":-2},
+{"label":"Slight fever","score":1},
+{"label":"Moderate fever","score":2},
+{"label":"High fever","score":3},
+{"label":"Critical fever","score":4}
+]},
+
+{"id":"symptoms","text":"Observed symptoms","required":true,"multiple":true,"options":[
+{"label":"Vomiting","score":2},
+{"label":"Diarrhea","score":2},
+{"label":"Weakness","score":1},
+{"label":"Fever","score":3},
+{"label":"No symptoms","score":-6,"exclusive":true}
+]}
+
+]
+}'::jsonb);
