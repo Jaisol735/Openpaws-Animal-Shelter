@@ -251,7 +251,6 @@ Think of OpenPaws like a **smart notebook** for a shelter.
 2. On the **Login** page, type your **name** and **password**.
 3. Click the big **blue Login button**.
 4. If your details are correct, you go to the **Home** page with colorful cards.
-5. Admin: name = openpaws; password = op@123  && Staff: name = staff1/staff2; password = staff123
 ### 7.2 Home page
 On the Home page you see several big buttons (cards), for example:
 - **New Assessment** – check how an animal is doing.
